@@ -1,6 +1,6 @@
-4bf89172586b2e2cbe52ec4fad2b6bd6 *DESCRIPTION
+b6af3a04bac0509577221a49a3265e15 *DESCRIPTION
 ad9762f603fd9708978e6e17ff6cd07a *NAMESPACE
-79729e2f2707bd176dd4eaff3f38e4fa *R/calculate_reaction_vector.R
+662c3cd5dcf3e76238b5cb8ac713ee9d *R/calculate_reaction_vector.R
 e5eb0a5ea8648598e3c6bc81d5c66124 *man/calculate_reaction_vector.Rd
 a431b9b0fd3767062cb233156c198735 *man/check_matrix.Rd
 7ed8e790cb922a94e801d719d75ad0c9 *man/reaction_vector.Rd

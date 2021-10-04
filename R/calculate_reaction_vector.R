@@ -270,8 +270,8 @@ eq_value_to_calc <- dim(ncol(modes_mat))
                             delta_max = max_counter - corrected_max_counter
                             f0 <- Norm(max_value_to_calc,p = Inf)
                             if( (delta_max > 0) && (f0 != 0) ){
-                                                                                         if( (f0 < -1 ) || (f0 > 1) ) {F0 <- abs(round(f0,6))}
-                                                                                         else if( (f0 > -1) && (f1 < 1) ){F0 <- round(exp(1) ^ (log(abs(f0 ^ (-1)),base = exp(1))),6)}
+                                                                                         if( (f0 < -1 ) || (f0 > 1) ) {F0 <- abs(f0)}
+                                                                                         else if( (f0 > -1) && (f1 < 1) ){F0 <- exp(1) ^ (log(abs(f0 ^ (-1)),base = exp(1)))}
                                                                                  }
 
                          }
@@ -281,8 +281,8 @@ eq_value_to_calc <- dim(ncol(modes_mat))
                             delta_min = min_counter - corrected_min_counter
                             f1 <- Norm(min_value_to_calc,p = Inf)
                             if( (delta_min > 0) && (f1 != 0) ){
-                                                                                      if((f1 < -1)  || (f1 > 1)){F1 <- round(exp(1) ^ (log(abs(f1) ^ (-1),base = exp(1))),6)}
-                                                                                      else if( (f1 > -1) && (f1 < 1) ){F1 <- abs(round(f1,6) )}
+                                                                                      if((f1 < -1)  || (f1 > 1)){F1 <- exp(1) ^ (log(abs(f1) ^ (-1),base = exp(1)))}
+                                                                                      else if( (f1 > -1) && (f1 < 1) ){F1 <- abs(f1 )}
                                                                                 }
                         }
 
@@ -294,11 +294,12 @@ eq_value_to_calc <- dim(ncol(modes_mat))
            if( (prob_F > prob_R) ){prob_R <- prob_E <- 0}
            else if( (prob_R > prob_F) ){prob_F <- prob_E <- 0}
            else if( (prob_F == prob_R) && ((prob_F > 0) && (prob_R > 0)) ){prob_F <- prob_R <- 0;prob_E <- 1}
+           else if( ((prob_F == 0) && (prob_R == 0)) &&  (eq_counter == 0)){prob_F <- prob_R <- 0;prob_E <- 1}
            else{prob_F <- prob_R <- prob_E <- 0}
 
            reaction <- rbind(reaction,paste(prob_F,prob_R,prob_E,sep=","))
            norm_prob <- c((F0 * prob_F),(F1 * prob_R),prob_E)
-           propensity  <- rbind(propensity,Norm(norm_prob,p=1))
+           propensity  <- rbind(propensity,round(Norm(norm_prob,p=1),6))
            if( Norm(norm_prob,p=1) > 1){dD <- "Forward"} else if( (Norm(norm_prob,p=1) > 0) && (Norm(norm_prob,p=1) < 1)){dD <- "Reverse"} else if(Norm(norm_prob,p=1) == 1){dD <- "Equivalent"}
            direction <- rbind(direction,dD)
       }

@@ -1,7 +1,7 @@
 Package: ReDirection
 Type: Package
 Title: Predict Dominant Direction of Reactions of a Biochemical Network
-Version: 1.0.0
+Version: 1.0.1
 Author: Siddhartha Kundu <2021: Manuscript Under Preparation>
 Maintainer: Siddhartha Kundu <siddhartha_kundu@aiims.edu>
 Description: Biologically relevant, yet mathematically sound constraints are used
@@ -35,6 +35,6 @@ Depends: stats, MASS, pracma
 Suggests: testthat (>= 3.0.0)
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-09-28 20:26:13 UTC; Siddhartha
+Packaged: 2021-10-03 06:54:00 UTC; Siddhartha
 Repository: CRAN
-Date/Publication: 2021-09-29 08:20:14 UTC
+Date/Publication: 2021-10-04 08:30:09 UTC
